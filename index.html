@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>PRIJAVA</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="css/style.css"/>
+<!-- Include JS File Here -->
+<script src="js/login.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="main">
+<form id="form_id" method="post" name="myform">
+<label>KORISNIČKO IME: </label>
+<input type="text" name="username" id="username"/>
+<label>LOZINKA: </label>
+<!-- <input type="password" name="password" id="password"/> -->
+<input type="password" name="password" id="password">
+
+<br>
+<br>
+ <input type="checkbox" onclick="myFunction()"> PRIKAŽI LOZINKU
+
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+<br>
+
+<input type="button" value="PRIJAVA" id="submit" onclick="validate()"/>
+</form>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1, #div2 {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 100px;
+  padding: 100px;
+  border: 1px solid black;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="479.png" draggable="true" ondragstart="drag(event)" id="drag1" width="100" height="100">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+<!--THE JS JAVASCRIPT PART BELOW-->
+
+<head>
+<script>
+
+var attempt = 6; // Variable to count number of attempts.WW
+// Below function Executes on click of login button.
+function validate() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    
+    if (username == "luka.risek@pokemon.com" && password == "poke-admin") {
+
+        alert("PRIJAVA JE USPJEŠNA");
+        window.location = "cat.html"; // Redirecting to other page.
+        return false;
+    } else {
+        attempt--; // Decrementing by one.
+        alert("IMAŠ JOŠ " + attempt + " POKUŠAJA;");
+        // Disabling fields after 3 attempts.
+        if (attempt == 0) {
+            document.getElementById("username").disabled = true;
+            document.getElementById("password").disabled = true;
+            document.getElementById("submit").disabled = true;
+            return false;
+        }
+    }
+}
+</script>
+</head>
+
+<P>BEZ PRIJAVE = POKEDEX.</P>
+<br>
+<P>PRIJAVA = IGRICA + POKEDEX.</P>
+
+<a href="proba.html">POKEDEX</a> 
